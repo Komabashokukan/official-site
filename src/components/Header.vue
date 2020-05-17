@@ -1,59 +1,69 @@
 <template>
-    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-        <div class="d-flex w-50 order-0">
-            <a class="navbar-brand mr-0 mr-md-2 logo-font" to="/">
-                <img src="@/assets/icon.png" height="32" loading="lazy">
-                駒場小空間
-            </a>
-        </div>
+    <div>
+        <v-navigation-drawer v-model="drawer" temporary app>
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title class="title">
+                        駒場小空間
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                        ホームページ
+                    </v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
 
-        <div class="navbar-nav-scroll justify-content-center order-2 container">
-            <ul class="navbar-nav bd-navbar-nav flex-row nav-font row col-sm-auto justify-content-center">
-                <li class="nav-item mr-2"><router-link class="nav-link" to="/">
-                    Home
-                </router-link></li>
-                <li class="nav-item mr-2"><router-link class="nav-link" to="about">
-                    About
-                </router-link></li>
-                <li class="nav-item mr-2 text-nowrap"><router-link class="nav-link" to="users">
-                    使用団体の方へ
-                </router-link></li>
-            </ul>
-            <ul class="navbar-nav bd-navbar-nav flex-row nav-font row col-sm-auto justify-content-center">
-                <li class="nav-item mr-2 text-nowrap"><router-link class="nav-link" to="manuals">
-                    利用に際して
-                    </router-link></li>
-                <li class="nav-item mr-1"><router-link class="nav-link" to="access">
-                    アクセス
-                </router-link></li>
-            </ul>
-        </div>
+            <v-divider></v-divider>
 
-        <span class="navbar-text small w-50 text-right order-1 order-md-last"><b>Komaba Multi-purpose Hall</b></span>
+            <v-list dense nav>
+                <v-list-item v-for="item in items" :key="item.title" :to="item.to" link align="left">
+
+                    <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-app-bar app dark src="@/assets/hall_empty.jpg" short>
+
+            <v-toolbar-title class="headline">
+                <span>駒場小空間</span>
+            </v-toolbar-title>
+
+            <v-spacer></v-spacer>
+
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn text v-for="item in items" :to="item.to" :key="item.to">{{ item.title }}</v-btn>
+            </v-toolbar-items>
+
+            <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+            <v-spacer class="hidden-sm-and-down"></v-spacer>
+
+        </v-app-bar>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    data () {
+        return {
+            drawer: null,
+            items: [
+                { title: 'Home', to: '/' },
+                { title: 'About', to: '/about' },
+                { title: '使用団体の方へ', to: '/users' },
+                { title: '利用に関して', to: '/manuals' },
+                { title: 'アクセス', to: '/access' }
+            ]
+        }
+    }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.logo-font {
-    font-family: "HiraKakuProN-W6";
-    font-size: 16pt;
-}
-.nav-font {
-    font-family: "Century";
-    font-weight: bold;
-}
-
-.navbar {
-    background-color: #e65c53;
-    overflow: hidden;
-}
 
 </style>
