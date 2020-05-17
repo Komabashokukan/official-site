@@ -25,7 +25,7 @@
 
             <v-flex md4 class="order-md-1 bt-md-2">
                 <v-card class="calendar mr-md-1 mt-md-2 pl-md-2 pr-md-2 pt-md-2 pb-8">
-                    <FullCalendar defaultView="dayGridMonth" :plugins="calendarPlugins" />
+                    <Calendar />
                 </v-card>
             </v-flex>
 
@@ -35,18 +35,15 @@
 
 <script>
 // @ is an alias to /src
-import FullCalendar from '@fullcalendar/vue';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import Calendar from '@/components/Calendar';
 
 export default {
     name: 'Home',
     components: {
-        FullCalendar
+        Calendar
     },
     data () {
-        return {
-            calendarPlugins: [dayGridPlugin]
-        }
+        return {}
     },
     computed: {
         items () {
