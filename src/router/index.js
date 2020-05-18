@@ -29,6 +29,31 @@ const routes = [
         path : '/access',
         name : 'Access',
         component : () => import('@/views/Access.vue')
+    },
+    {
+        path : '/form/reservation_request',
+        name : 'ReservationRequest',
+        component : () => import('@/views/users/form/ReservationRequest.vue')
+    },
+    {
+        path : '/form/project_plan',
+        name : 'ProjectPlan',
+        component : () => import('@/views/users/form/ProjectPlan.vue')
+    },
+    {
+        path : '/form/overtime_use',
+        name : 'OvertimeUse',
+        component : () => import('@/views/users/form/OvertimeUse.vue')
+    },
+    {
+        path : '/form/exit_check',
+        name : 'ExitCheck',
+        component : () => import('@/views/users/form/ExitCheck.vue')
+    },
+    {
+        path: '/form/consent',
+        name: 'Consent',
+        component : () => import('@/views/users/form/Consent.vue')
     }
 ];
 

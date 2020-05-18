@@ -1,28 +1,28 @@
 <template>
-  <v-container fluid fill-height class="white">
-    <v-layout wrap justify-center>
-        <v-flex md10>
-            <v-card>
-                <v-tabs v-model="tab" background-color="grey lighten-2" color="grey" icons-and-text centered>
-                    <v-tab v-for="item in items" :key="item.tab">
-                        {{ item.tab }}<v-icon>{{ item.icon }}</v-icon>
-                    </v-tab>
-                </v-tabs>
+    <v-container fluid fill-height class="white">
+        <v-layout wrap justify-center>
+            <v-flex md10>
+                <v-card>
+                    <v-tabs v-model="tab" background-color="grey lighten-2" color="grey" icons-and-text centered>
+                        <v-tab v-for="item in items" :key="item.tab">
+                            {{ item.tab }}<v-icon>{{ item.icon }}</v-icon>
+                        </v-tab>
+                    </v-tabs>
 
-                <v-tabs-slider></v-tabs-slider>
+                    <v-tabs-slider></v-tabs-slider>
 
-                <v-tabs-items v-model="tab">
-                    <v-tab-item v-for="item in items" :key="item.tab">
-                        <Download v-if="item.content === 'Download'" />
-                        <Schedule v-if="item.content === 'Schedule'" />
-                        <Form v-if="item.content === 'Form'" />
-                    </v-tab-item>
-                </v-tabs-items>
-            </v-card>
-        </v-flex>
+                    <v-tabs-items v-model="tab">
+                        <v-tab-item v-for="item in items" :key="item.tab">
+                            <Download v-if="item.content === 'Download'" />
+                            <Schedule v-if="item.content === 'Schedule'" />
+                            <Form v-if="item.content === 'Form'" />
+                        </v-tab-item>
+                    </v-tabs-items>
+                </v-card>
+            </v-flex>
 
-    </v-layout>
-  </v-container>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>
