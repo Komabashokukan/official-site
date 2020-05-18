@@ -1,20 +1,16 @@
 <template>
-    <FullCalendar defaultView="dayGridMonth" :plugins="calendarPlugins" />
+    <v-container>
+        <h2 class="text-left mb-md-2 ml-md-2">May 2020</h2>
+        <v-calendar></v-calendar>
+    </v-container>
 </template>
 
 <script>
-import FullCalendar from '@fullcalendar/vue';
-import dayGridPlugin from '@fullcalendar/daygrid';
-
 export default {
     name: 'Home',
     components: {
-        FullCalendar
     },
     computed: {
-        calendarPlugins () {
-            return [dayGridPlugin]
-        }
     }
 }
 </script>

@@ -11,8 +11,8 @@
                     <v-list two-line align="left" rounded>
                         <template v-for="(item, index) in items">
                             <v-subheader v-if="item.header" :key="item.header" v-text="item.header"></v-subheader>
-                            <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
-                            <v-list-item v-else :key="item.date">
+                            <v-divider v-else-if="item.divider" :key="index"></v-divider>
+                            <v-list-item v-else :key="item.date" @click="0">
                                 <v-list-item-content>
                                     <v-list-item-title v-html="item.date"></v-list-item-title>
                                     <v-list-item-subtitle v-html="item.title"></v-list-item-subtitle>
@@ -25,7 +25,7 @@
 
             <v-flex md4 class="order-md-1 bt-md-2">
                 <v-card class="calendar mr-md-1 mt-md-2 pl-md-2 pr-md-2 pt-md-2 pb-8">
-                    <Calendar />
+                    <Calendar style="height: 38vh;" />
                 </v-card>
             </v-flex>
 
@@ -52,19 +52,19 @@ export default {
                 { date: '05/01', link: '#', title: '緊急事態宣言の発令に伴う閉館期間の延長について(再延長)', active: false },
                 { divider: true, inset: true },
                 { date: '04/10', link: '#', title: '緊急事態宣言の発令に伴う閉館期間の延長について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '03/27', link: '#', title: '駒場キャンパスの「ステージ・オレンジ」への移行に係る閉館期間の延長について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '03/03', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '03/02', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '03/01', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '02/29', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '02/25', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true, inset: true },
+                { divider: true },
                 { date: '02/23', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false }
             ]
         }
@@ -73,11 +73,10 @@ export default {
 </script>
 
 <style scoped>
-@import '~@fullcalendar/core/main.css';
-
 .calendar {
     background-color: white;
     max-height: 45vh;
+    height: 45vh;
 }
 @media ( max-width: 960px ) {
     .calendar {

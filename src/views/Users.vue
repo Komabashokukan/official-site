@@ -34,28 +34,19 @@ export default {
     name: 'Users',
     components: { Download, Schedule, Form },
     data () {
-      return {
-          tab: 0,
-          items: [
-              { tab: 'schedule', icon: 'mdi-calendar-check', content: 'Schedule' },
-              { tab: 'download', icon: 'mdi-download', content: 'Download' },
-              { tab: 'form', icon: 'mdi-file-document-edit', content: 'Form' }
-          ]
-      }
+        return {
+            tab: 0,
+            items: [
+                { tab: 'schedule', icon: 'mdi-calendar-check', content: 'Schedule' },
+                { tab: 'download', icon: 'mdi-download', content: 'Download' },
+                { tab: 'form', icon: 'mdi-file-document-edit', content: 'Form' }
+            ]
+        }
     }
 }
 
 </script>
 
 <style scoped>
-  .cards {
-    height: 50vh;
-    overflow: scroll;
-  }
-
-  .dialog {
-    width: 50vw;
-  }
 
 </style>
-
