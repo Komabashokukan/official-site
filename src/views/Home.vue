@@ -6,13 +6,13 @@
                 <v-img src="@/assets/lights.jpg" min-height="30vh" max-height="45vh"></v-img>
             </v-flex>
 
-            <v-flex md7 class="order-md-2 bt-md-2">
+            <v-flex md7 sm12 class="order-md-2 bt-md-2">
                 <v-card class="info ml-md-1 mt-md-2 mb-2 mb-md-0">
                     <v-list two-line align="left" rounded>
                         <template v-for="(item, index) in items">
                             <v-subheader v-if="item.header" :key="item.header" v-text="item.header"></v-subheader>
                             <v-divider v-else-if="item.divider" :key="index"></v-divider>
-                            <v-list-item v-else :key="item.date" @click="0">
+                            <v-list-item v-else :key="item.date" @click="open_info(item)">
                                 <v-list-item-content>
                                     <v-list-item-title v-html="item.date"></v-list-item-title>
                                     <v-list-item-subtitle v-html="item.title"></v-list-item-subtitle>
@@ -23,11 +23,41 @@
                 </v-card>
             </v-flex>
 
-            <v-flex md4 class="order-md-1 bt-md-2">
+            <v-flex md4 sm12 class="order-md-1 bt-md-2">
                 <v-card class="calendar mr-md-1 mt-md-2 pl-md-2 pr-md-2 pt-md-2 pb-8">
                     <Calendar style="height: 38vh;" />
                 </v-card>
             </v-flex>
+
+            <v-flex md11 class="order-md-last mt-2">
+                <v-card class="grey lighten-1">
+                    <v-card-text class="text--white">
+                        Copyright {{ new Date().getFullYear() }} - {{ new Date().getFullYear() + 1 }} 多目的ホール総務部 All Rights Reserved.
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+
+            <v-dialog v-model="info_dialog">
+                <v-card>
+                    <v-card-actions>
+                        <v-btn icon @click="info_dialog = false">
+                            <v-icon>mdi-close</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+
+                    <v-card-title>
+                        <v-chip class="mr-sm-2">{{ info.date }}</v-chip>
+                        {{ info.title }}
+                    </v-card-title>
+
+                    <v-card-text class="text-left mt-md-6" v-html="info.content" />
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn text @click="info_dialog = false">閉じる</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
 
         </v-layout>
     </v-container>
@@ -43,13 +73,31 @@ export default {
         Calendar
     },
     data () {
-        return {}
+        return {
+            info_dialog: null,
+            info: {}
+        }
+    },
+    methods: {
+        open_info (info) {
+            this.info = info;
+            this.info_dialog = true;
+        }
     },
     computed: {
         items () {
             return [
                 { header: '2020' },
-                { date: '05/01', link: '#', title: '緊急事態宣言の発令に伴う閉館期間の延長について(再延長)', active: false },
+                {
+                    date: '05/01',
+                    link: '#',
+                    title: '緊急事態宣言の発令に伴う閉館期間の延長について(再延長)',
+                    active: false,
+                    content: '緊急事態宣言の発令を受け4月10日に延長を発表しておりました多目的ホールの閉館期間に関して、文化活動施設運営協議会での協議の結果、6月7日(日)まで延長することを決定いたしました。<br>' +
+                                '<p>詳細は以下のpdfファイルをご参照下さい。</p>' +
+                                '<p><a href="#">新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止期間の継続について（第3報）.pdf</a></p><br>' +
+                                '利用団体の方々含め多くの方にご迷惑をお掛けしますが、何卒ご理解ご協力のほど、宜しくお願いいたします。'
+                },
                 { divider: true, inset: true },
                 { date: '04/10', link: '#', title: '緊急事態宣言の発令に伴う閉館期間の延長について', active: false },
                 { divider: true },

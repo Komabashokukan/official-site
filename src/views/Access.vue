@@ -2,12 +2,17 @@
     <v-container fluid fill-height class="white">
         <v-layout wrap justify-center>
 
-            <v-flex md10 class="text-left order-0 mt-md-8">
-                <h2>アクセス</h2>
+            <v-flex md5 sm12 class="text-left order-0 mt-md-8 pl-4">
+                <h2 class="mb-2">アクセス</h2>
                 <p>〒153-0041 東京都目黒区駒場3-8-1 東京大学教養学部多目的ホール</p>
                 <p>京王井の頭線「駒場東大前駅」下車徒歩七分</p>
                 <p><u>駐車場などはございませんので、公共交通機関をご利用ください。</u></p>
-                <p>お問い合わせ: <a href="mailto:komabashokukan@gmail.com" class="blue--text">komabashokukan@gmail.com</a></p>
+            </v-flex>
+
+            <v-flex md5 sm12 class="text-left order-0 mt-md-8 pl-4">
+                <h2 class="mb-2">お問い合わせ</h2>
+                <p>電話番号: 090-3816-3855</p>
+                <p>メール: <a href="mailto:komabashokukan@gmail.com" class="blue--text">komabashokukan@gmail.com</a></p>
             </v-flex>
 
             <v-flex md5 class="order-1 mr-md-5">
