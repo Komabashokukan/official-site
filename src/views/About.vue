@@ -2,15 +2,15 @@
     <v-container fluid fill-height class="white">
         <v-layout wrap justify-center>
 
-            <v-flex md2></v-flex>
-            <v-flex md8 class="text-left mt-md-5">
+            <v-flex md2 class="hidden-md-and-down"></v-flex>
+            <v-flex md8 sm12 class="text-left mt-md-5">
                 <h2>駒場小空間とは？</h2>
             </v-flex>
-            <v-flex md2></v-flex>
+            <v-flex md2 class="hidden-md-and-down"></v-flex>
 
             <template v-for="card in cards">
 
-                <v-flex md4 :key="card.title" class="ml-md-2 mr-md-2">
+                <v-flex md4 sm12 :key="card.title" class="ml-md-2 mr-md-2">
                     <v-card elevation="9">
                         <v-img :src="card.image" class="white--text align-end"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -31,7 +31,7 @@
                     </v-card>
                 </v-flex>
 
-                <v-dialog :key="card.dialog" v-model="card.open" class="white dialog" max-width="50vw">
+                <v-dialog :key="card.dialog" v-model="card.open" class="white">
                     <v-card>
                         <v-card-actions>
                             <v-btn icon @click="card.open = false">
@@ -91,13 +91,5 @@ export default {
 </script>
 
 <style scoped>
-.cards {
-    height: 50vh;
-    overflow: scroll;
-}
-
-.dialog {
-    width: 50vw;
-}
 
 </style>

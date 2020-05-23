@@ -5,13 +5,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "npm run download-webviewer",
+    "download-webviewer": "npx @pdftron/webviewer-downloader"
   },
   "dependencies": {
+    "@pdftron/webviewer": "^6.3.1",
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "fontawesome": "^5.6.3",
     "moment": "^2.25.3",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
+    "vue-pdf": "^4.0.8",
     "vue-router": "^3.1.6",
     "vuetify": "^2.2.11",
     "vuex": "^3.1.3"
