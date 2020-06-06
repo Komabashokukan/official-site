@@ -11,13 +11,15 @@
                     <v-list two-line align="left" rounded>
                         <template v-for="(item, index) in items">
                             <v-subheader v-if="item.header" :key="item.header" v-text="item.header"></v-subheader>
-                            <v-divider v-else-if="item.divider" :key="index"></v-divider>
-                            <v-list-item v-else :key="item.date" @click="open_info(item)">
-                                <v-list-item-content>
-                                    <v-list-item-title v-html="item.date"></v-list-item-title>
-                                    <v-list-item-subtitle v-html="item.title"></v-list-item-subtitle>
-                                </v-list-item-content>
-                            </v-list-item>
+                            <template v-else>
+                                <v-divider :key="index"></v-divider>
+                                <v-list-item :key="item.date" @click="open_info(item)">
+                                    <v-list-item-content>
+                                        <v-list-item-title v-html="item.date"></v-list-item-title>
+                                        <v-list-item-subtitle v-html="item.title"></v-list-item-subtitle>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </template>
                         </template>
                     </v-list>
                 </v-card>
@@ -64,6 +66,7 @@
 </template>
 
 <script>
+/* eslint camelcase: "off" */
 // @ is an alias to /src
 import Calendar from '@/components/Calendar';
 
@@ -75,7 +78,9 @@ export default {
     data () {
         return {
             info_dialog: null,
-            info: {}
+            info: {},
+            items:  [
+            ]
         }
     },
     methods: {
@@ -84,38 +89,30 @@ export default {
             this.info_dialog = true;
         }
     },
-    computed: {
-        items () {
-            return [
-                { header: '2020' },
-                {
-                    date: '05/01',
-                    link: '#',
-                    title: '緊急事態宣言の発令に伴う閉館期間の延長について(再延長)',
-                    active: false,
-                    content: '緊急事態宣言の発令を受け4月10日に延長を発表しておりました多目的ホールの閉館期間に関して、文化活動施設運営協議会での協議の結果、6月7日(日)まで延長することを決定いたしました。<br>' +
-                                '<p>詳細は以下のpdfファイルをご参照下さい。</p>' +
-                                '<p><a href="#">新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止期間の継続について（第3報）.pdf</a></p><br>' +
-                                '利用団体の方々含め多くの方にご迷惑をお掛けしますが、何卒ご理解ご協力のほど、宜しくお願いいたします。'
-                },
-                { divider: true, inset: true },
-                { date: '04/10', link: '#', title: '緊急事態宣言の発令に伴う閉館期間の延長について', active: false },
-                { divider: true },
-                { date: '03/27', link: '#', title: '駒場キャンパスの「ステージ・オレンジ」への移行に係る閉館期間の延長について', active: false },
-                { divider: true },
-                { date: '03/03', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true },
-                { date: '03/02', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true },
-                { date: '03/01', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true },
-                { date: '02/29', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true },
-                { date: '02/25', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false },
-                { divider: true },
-                { date: '02/23', link: '#', title: '新型コロナウイルスの感染拡大に伴う多目的ホールの使用中止について', active: false }
-            ]
-        }
+    mounted () {
+        this.axios.get('https://fwnr71w8e0.execute-api.us-east-2.amazonaws.com/default/getKibelaPages?action=bundle&path=Info')
+            .then(response => {
+                let year = 3000;
+                for (const edge of response.data.notes.edges) {
+                    const title_parse = edge.node.title.match(/(?<year>\d\d\d\d)-(?<date>\d\d-\d\d)\s*(?<title>.*)/);
+                    if (title_parse === null) {
+                        continue;
+                    }
+                    console.log(title_parse.groups);
+                    if (Number(title_parse.groups.year) < year) {
+                        this.items.push({
+                            header: title_parse.groups.year
+                        });
+                        year = Number(title_parse.year);
+                    }
+                    this.items.push({
+                        date: title_parse.groups.date,
+                        title: title_parse.groups.title,
+                        active: false,
+                        content: edge.node.content
+                    });
+                }
+            });
     }
 }
 </script>

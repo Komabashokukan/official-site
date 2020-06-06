@@ -82,7 +82,7 @@ export default {
                     title: 'FAQ(よくある質問)',
                     icon: 'mdi-comment-question-outline',
                     color: 'blue',
-                    type: 'pdf',
+                    type: 'markdown',
                     link: '/static/pdf/fire.pdf',
                     open: false
                 },
