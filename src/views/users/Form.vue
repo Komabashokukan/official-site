@@ -14,7 +14,7 @@
                             </v-icon>
                         </v-avatar>
 
-                        <v-card-title class="text-center form-title mx-2">{{ item.title }}</v-card-title>
+                        <div class="text-center form-title mx-2">{{ item.title }}</div>
                     </v-card>
                 </v-flex>
 
@@ -33,7 +33,7 @@ export default {
                 { title: '継続使用申請書', to: '/form/reservation_request', icon: 'mdi-file-document' },
                 { title: '継続使用計画書', to: '/form/project_plan', icon: 'mdi-calendar-multiple-check' },
                 { title: '時間外使用申請書', to: '/form/overtime_use', icon: 'mdi-table-clock' },
-                { title: '退出時点検表(一般使用&舞台部門)', to: '/form/exit_check', icon: 'mdi-format-list-checks' },
+                { title: '退出時点検表(舞台部門)', to: '/form/exit_check', icon: 'mdi-format-list-checks' },
                 { title: '退出時点検表(照明部門)', to: '/form/exit_check_light', icon: 'mdi-format-list-checks' },
                 { title: '退出時点検表(音響部門)', to: '/form/exit_check_sound', icon: 'mdi-format-list-checks' },
                 { title: '同意書', to: '/form/consent', icon: 'mdi-badge-account-horizontal-outline' }
