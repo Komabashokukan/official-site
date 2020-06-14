@@ -51,6 +51,16 @@ const routes = [
         component : () => import('@/views/users/form/ExitCheck.vue')
     },
     {
+        path : '/form/exit_check_light',
+        name : 'ExitCheck_Light',
+        component : () => import('@/views/users/form/ExitCheck_Light.vue')
+    },
+    {
+        path : '/form/exit_check_sound',
+        name : 'ExitCheck_Sound',
+        component : () => import('@/views/users/form/ExitCheck_Sound.vue')
+    },
+    {
         path: '/form/consent',
         name: 'Consent',
         component : () => import('@/views/users/form/Consent.vue')
