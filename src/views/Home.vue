@@ -69,6 +69,7 @@
 /* eslint camelcase: "off" */
 // @ is an alias to /src
 import Calendar from '@/components/Calendar';
+import marked from 'marked';
 
 export default {
     name: 'Home',
@@ -109,7 +110,7 @@ export default {
                         date: title_parse.groups.date,
                         title: title_parse.groups.title,
                         active: false,
-                        content: edge.node.content
+                        content: marked(edge.node.content)
                     });
                 }
             });
