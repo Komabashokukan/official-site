@@ -3,11 +3,11 @@
         <v-layout text-md-center wrap justify-center align-start>
 
             <v-flex md11 class="order-md-0 align-end justify-end">
-                <v-img src="@/assets/lights.jpg" min-height="30vh" max-height="45vh"></v-img>
+                <v-img src="@/assets/lights.jpg" min-height="35vh" max-height="45vh"></v-img>
             </v-flex>
 
             <v-flex md7 sm12 class="order-md-2 bt-md-2">
-                <v-card class="info ml-md-1 mt-md-2 mb-2 mb-md-0">
+                <v-card class="info ml-md-1 mt-md-2 mb-2 mb-md-0" style="background-color: white !important;">
                     <v-list two-line align="left" rounded>
                         <template v-for="(item, index) in items">
                             <v-subheader v-if="item.header" :key="item.header" v-text="item.header"></v-subheader>
@@ -132,6 +132,7 @@ export default {
 }
 .info {
     overflow-y: scroll;
+    min-height: 45vh;
     max-height: 45vh;
 }
 
