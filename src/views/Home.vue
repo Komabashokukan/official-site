@@ -90,10 +90,10 @@ export default {
         }
     },
     mounted () {
-        this.axios.get('https://fwnr71w8e0.execute-api.us-east-2.amazonaws.com/default/getKibelaPages?action=bundle&path=Info')
+        this.axios.get('https://j8zyiae7b5.execute-api.ap-northeast-1.amazonaws.com/default/fetch_kibela/Info')
             .then(response => {
                 let year = 3000;
-                for (const edge of response.data.notes.edges) {
+                for (const edge of response.data) {
                     const title_parse = edge.node.title.match(/(?<year>\d\d\d\d)-(?<date>\d\d-\d\d)\s*(?<title>.*)/);
                     if (title_parse === null) {
                         continue;

@@ -36,16 +36,58 @@
                                 </v-flex>
                             </v-layout>
                         </v-container>
+                        <v-container v-else-if="card.type === 'markdown'">
+                            <v-layout justify-center wrap>
+                                <v-flex md7 sm12 class="order-md-2 bt-md-2">
+                                    <v-card class="info ml-md-1 mt-md-2 mb-2 mb-md-0">
+                                        <v-list two-line align="left" rounded>
+                                            <template v-for="(item, index) in Items[card.link]">
+                                                <template>
+                                                    <v-divider :key="index"></v-divider>
+                                                    <v-list-item :key="item.title" @click="open_item(item)">
+                                                        <v-list-item-content>
+                                                            <v-list-item-title v-html="item.title"></v-list-item-title>
+                                                        </v-list-item-content>
+                                                    </v-list-item>
+                                                </template>
+                                            </template>
+                                        </v-list>
+                                    </v-card>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
                     </v-card>
                 </v-dialog>
 
             </template>
+
+            <v-dialog v-model="item_dialog">
+                <v-card>
+                    <v-card-actions>
+                        <v-btn icon @click="item_dialog = false">
+                            <v-icon>mdi-close</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+
+                    <v-card-title>
+                        {{ show_item.title }}
+                    </v-card-title>
+
+                    <v-card-text class="text-left mt-md-6" v-html="show_item.content" />
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn text @click="item_dialog = false">閉じる</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
 
         </v-layout>
     </v-container>
 </template>
 
 <script>
+/* eslint camelcase: "off" */
 import PDFViewer from '@/components/PDFViewer';
 
 export default {
@@ -53,13 +95,16 @@ export default {
     components: { PDFViewer },
     data () {
         return {
+            Items:  { Guideline: [], FAQ: [] },
+            show_item: {},
+            item_dialog: null,
             cards : [
                 {
                     title: '利用の手引き',
                     icon: 'mdi-hand-right',
                     color: 'grey',
                     type: 'markdown',
-                    link: '/static/pdf/earthquake.pdf',
+                    link: 'Guideline',
                     open: false
                 },
                 {
@@ -83,7 +128,7 @@ export default {
                     icon: 'mdi-comment-question-outline',
                     color: 'blue',
                     type: 'markdown',
-                    link: '/static/pdf/fire.pdf',
+                    link: 'FAQ',
                     open: false
                 },
                 {
@@ -91,7 +136,7 @@ export default {
                     icon: 'mdi-alert',
                     color: 'yellow darken-2',
                     type: 'markdown',
-                    link: '/static/pdf/fire.pdf',
+                    link: 'Guideline',
                     open: false
                 },
                 {
@@ -102,8 +147,31 @@ export default {
                     link: '/static/pdf/fire.pdf',
                     open: false
                 }
-            ]
+            ],
+            fetch_from_kibela (folder) {
+                this.axios.get('https://j8zyiae7b5.execute-api.ap-northeast-1.amazonaws.com/default/fetch_kibela/' + folder)
+                    .then(response => {
+                        console.log(response)
+                        for (const edge of response.data) {
+                            this.Items[folder].push({
+                                title: edge.node.title,
+                                active: false,
+                                content: edge.node.content
+                            });
+                        }
+                    });
+            }
         }
+    },
+    methods: {
+        open_item (item) {
+            this.show_item = item;
+            this.item_dialog = true;
+        }
+    },
+    mounted () {
+        this.fetch_from_kibela('Guideline')
+        this.fetch_from_kibela('FAQ')
     }
 }
 
