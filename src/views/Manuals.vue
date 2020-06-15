@@ -39,7 +39,7 @@
                         <v-container v-else-if="card.type === 'markdown'">
                             <v-layout justify-center wrap>
                                 <v-flex md7 sm12 class="order-md-2 bt-md-2">
-                                    <v-card class="info ml-md-1 mt-md-2 mb-2 mb-md-0">
+                                    <v-card class="item ml-md-1 mt-md-2 mb-2 mb-md-0">
                                         <v-list two-line align="left" rounded>
                                             <template v-for="(item, index) in Items[card.link]">
                                                 <template>
@@ -89,6 +89,7 @@
 <script>
 /* eslint camelcase: "off" */
 import PDFViewer from '@/components/PDFViewer';
+import marked from 'marked';
 
 export default {
     name: 'Manuals',
@@ -144,7 +145,7 @@ export default {
                     icon: 'mdi-cancel',
                     color: 'red darken-3',
                     type: 'markdown',
-                    link: '/static/pdf/fire.pdf',
+                    link: 'Regulation',
                     open: false
                 }
             ],
@@ -156,7 +157,7 @@ export default {
                             this.Items[folder].push({
                                 title: edge.node.title,
                                 active: false,
-                                content: edge.node.content
+                                content: marked(edge.node.content)
                             });
                         }
                     });
@@ -172,6 +173,7 @@ export default {
     mounted () {
         this.fetch_from_kibela('Guideline')
         this.fetch_from_kibela('FAQ')
+        this.fetch_from_kibela('Regulation')
     }
 }
 
@@ -194,5 +196,9 @@ export default {
 .pdfviewer {
     width: 100%;
     height: 100%;
+}
+.item {
+    overflow-y: scroll;
+    /* max-height: 45vh; */
 }
 </style>
