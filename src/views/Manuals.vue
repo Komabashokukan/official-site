@@ -82,6 +82,9 @@
                 </v-card>
             </v-dialog>
 
+            <v-flex md12 class="order-last">
+                Copyright {{ new Date().getFullYear() }} - {{ new Date().getFullYear() + 1 }} 多目的ホール総務部 All Rights Reserved.
+            </v-flex>
         </v-layout>
     </v-container>
 </template>
