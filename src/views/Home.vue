@@ -99,7 +99,6 @@ export default {
                     if (title_parse === null) {
                         continue;
                     }
-                    console.log(title_parse.groups);
                     if (Number(title_parse.groups.year) < year) {
                         this.items.push({
                             header: title_parse.groups.year
