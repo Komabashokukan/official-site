@@ -26,8 +26,8 @@
             </v-flex>
 
             <v-flex md4 sm12 class="order-md-1 bt-md-2">
-                <v-card class="calendar mr-md-1 mt-md-2 pl-md-2 pr-md-2 pt-md-2 pb-8">
-                    <Calendar style="height: 38vh;" />
+                <v-card class="calendar mr-md-1 mt-md-2 pl-md-2 pr-md-2 pb-8">
+                    <MiniCalendar class="mx-1" style="height: 38vh;" />
                 </v-card>
             </v-flex>
 
@@ -68,13 +68,13 @@
 <script>
 /* eslint camelcase: "off" */
 // @ is an alias to /src
-import Calendar from '@/components/Calendar';
+import MiniCalendar from '@/components/MiniCalendar';
 import marked from 'marked';
 
 export default {
     name: 'Home',
     components: {
-        Calendar
+        MiniCalendar
     },
     data () {
         return {
@@ -119,6 +119,8 @@ export default {
 
 <style scoped>
 .calendar {
+    overflow-y: scroll;
+    overflow-x: hidden;
     background-color: white;
     max-height: 45vh;
     height: 45vh;

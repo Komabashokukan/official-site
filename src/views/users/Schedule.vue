@@ -4,7 +4,7 @@
         <v-card-subtitle>駒場小空間の予約スケジュールをご確認いただけます</v-card-subtitle>
 
         <v-card-text>
-            <Calendar class="mb-4 mb-md-8 calendar" />
+            <Calendar class="mt-n6 mb-4 mb-md-8 calendar" />
         </v-card-text>
     </v-card>
 </template>
