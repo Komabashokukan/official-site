@@ -1,7 +1,7 @@
 <template>
     <v-container class='black' fluid fill-height>
         <v-layout wrap justify-center>
-        <v-flex>
+        <v-flex xs12>
             <v-card class="mt-3">
                 <v-system-bar color="orange lighten-2"></v-system-bar>
                     <v-card-title>退出時点検表</v-card-title>
@@ -13,7 +13,7 @@
                 </v-tabs>
             </v-card>
         </v-flex>
-        <v-flex class='mt-3'>
+        <v-flex xs12 class='mt-3'>
             <v-card>
                 <v-list flat>
                     <v-list-item v-for="equipment in equipments[tab]" :key="equipment.name" class="mt-1">
