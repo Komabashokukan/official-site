@@ -13,7 +13,7 @@
             <v-icon small>mdi-chevron-right</v-icon>
           </v-btn>
           <v-toolbar-title v-if="$refs.calendar">
-            {{ $refs.calendar.title }}
+            {{this.showedYear}}年 {{ this.showedMonth }}月
           </v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
@@ -36,6 +36,8 @@
 <script>
 export default {
     data: () => ({
+        showedMonth: '',
+        showedYear: '',
         focus: '',
         type: 'month',
         typeToLabel: {
@@ -90,6 +92,17 @@ export default {
         // },
         updateRange ({ start, end }) {
             this.events = this.fetchDB({ start, end })
+            this.updateTitle()
+        },
+        updateTitle () {
+            let tmpDate = {}
+            if (this.focus.length === 0) {
+                tmpDate = this.$refs.calendar.start.split('-')
+            } else {
+                tmpDate = this.focus.split('-')
+            }
+            this.showedYear = Number(tmpDate[0])
+            this.showedMonth = Number(tmpDate[1])
         },
         rnd (a, b) {
             return Math.floor((b - a + 1) * Math.random()) + a
