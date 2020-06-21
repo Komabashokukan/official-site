@@ -9,7 +9,10 @@
                 <v-layout wrap>
                     <v-flex xs3 md2>
                         <v-icon v-if="log.check" large color="green">check_circle</v-icon>
-                        <v-btn v-if="log.check === false" text dark small color="orange lighten-2">Check</v-btn>
+                        <v-btn v-if="log.check === false" text dark small color="orange lighten-2">
+                            <v-icon>notification_important</v-icon>
+                            check
+                        </v-btn>
                     </v-flex>
                     <v-flex xs9 md5><v-card-title class="text-left">{{ log.time }}</v-card-title></v-flex>
                     <v-flex xs12 md5>
@@ -17,15 +20,29 @@
                     </v-flex>
                 </v-layout>
                 <v-card-actions>
-                        <v-layout>
-                            <v-flex xs8 md10></v-flex>
-                            <v-flex xs2 md1><v-btn text dark x-small color="blue">
-                                <v-icon>edit</v-icon>
-                            </v-btn></v-flex>
-                            <v-flex xs2 md1><v-btn text dark x-small color="blue">
-                                <v-icon>pageview</v-icon>
-                            </v-btn></v-flex>
-                        </v-layout>
+                    <v-layout>
+                        <v-flex xs8 md10></v-flex>
+                        <v-flex xs2 md1 class='pt-5'>
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn text dark x-small color="blue" v-bind="attrs" v-on="on">
+                                        <v-icon>edit</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>内容を修正する</span>
+                            </v-tooltip>
+                        </v-flex>
+                        <v-flex xs2 md1 class='pt-5'>
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn text dark x-small color="blue" v-bind="attrs" v-on="on">
+                                        <v-icon>pageview</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>機材管理表を確認する</span>
+                            </v-tooltip>
+                        </v-flex>
+                    </v-layout>
                 </v-card-actions>
             </v-container>
         </v-card>

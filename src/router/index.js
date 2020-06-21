@@ -74,6 +74,11 @@ const routes = [
         path: '/equipments/equipment_log_light',
         name: 'EquipmentLog_Light',
         component : () => import('@/views/users/equipments/EquipmentLog_Light.vue')
+    },
+    {
+        path: '/equipments/lightbulb',
+        name: 'Lightbulb',
+        component : () => import('@/views/users/equipments/Lightbulb.vue')
     }
 ];
 

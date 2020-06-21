@@ -1,11 +1,9 @@
 <template>
     <v-card>
-        <v-card-title>機材</v-card-title>
-        <v-card-subtitle>各種機材の数・状態が確認できます</v-card-subtitle>
-
+        <v-card-title>備品</v-card-title>
+        <v-card-subtitle>各種備品の数・状態が確認できます</v-card-subtitle>
         <v-container fluid fill-height>
             <v-layout wrap justify-center>
-
                 <v-card>
                     <v-list two-line subheader class="text-left">
                         <template v-for="(item, index) in items">
@@ -27,10 +25,8 @@
                         </template>
                     </v-list>
                 </v-card>
-
             </v-layout>
         </v-container>
-
     </v-card>
 </template>
 
@@ -49,7 +45,7 @@ export default {
                 { header: '照明' },
                 { name: '照明備品一覧', to: '/equipments/equipment_light', icon: 'mdi-lightbulb-on', color: 'orange lighten-2', description: '最新の照明機材の数が確認できます。' },
                 { name: '機材管理表', to: '/equipments/equipment_log_light', icon: 'mdi-lightbulb-on', color: 'orange lighten-2', description: '過去の退出チェックの確認・修正はこちらからできます。' },
-                { name: '予備球管理表', to: '#', icon: 'mdi-lightbulb-on', color: 'orange lighten-2', description: '予備球の確認・修正はこちらからできます。' }
+                { name: '予備球管理表', to: '/equipments/lightbulb', icon: 'mdi-lightbulb-on', color: 'orange lighten-2', description: '予備球の確認・修正はこちらからできます。' }
             ]
         }
     },
