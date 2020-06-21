@@ -64,6 +64,16 @@ const routes = [
         path: '/form/consent',
         name: 'Consent',
         component : () => import('@/views/users/form/Consent.vue')
+    },
+    {
+        path: '/equipments/equipment_light',
+        name: 'Equipment_Light',
+        component : () => import('@/views/users/equipments/Equipment_Light.vue')
+    },
+    {
+        path: '/equipments/equipment_log_light',
+        name: 'EquipmentLog_Light',
+        component : () => import('@/views/users/equipments/EquipmentLog_Light.vue')
     }
 ];
 

@@ -16,6 +16,7 @@
                             <Download v-if="item.content === 'Download'" />
                             <Schedule v-if="item.content === 'Schedule'" />
                             <Form v-if="item.content === 'Form'" />
+                            <Equipments v-if="item.content === 'Equipments'" />
                         </v-tab-item>
                     </v-tabs-items>
                 </v-card>
@@ -32,17 +33,19 @@
 import Download from '@/views/users/Download';
 import Schedule from '@/views/users/Schedule';
 import Form from '@/views/users/Form';
+import Equipments from '@/views/users/Equipments';
 
 export default {
     name: 'Users',
-    components: { Download, Schedule, Form },
+    components: { Download, Schedule, Form, Equipments },
     data () {
         return {
             tab: 0,
             items: [
                 { tab: 'schedule', icon: 'mdi-calendar-check', content: 'Schedule' },
                 { tab: 'download', icon: 'mdi-download', content: 'Download' },
-                { tab: 'form', icon: 'mdi-file-document-edit', content: 'Form' }
+                { tab: 'form', icon: 'mdi-file-document-edit', content: 'Form' },
+                { tab: 'equipments', icon: 'mdi-widgets', content: 'Equipments' }
             ]
         }
     }
