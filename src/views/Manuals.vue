@@ -116,7 +116,7 @@ export default {
                     icon: 'mdi-exit-run',
                     color: 'green darken-2',
                     type: 'pdf',
-                    link: '/static/pdf/earthquake.pdf',
+                    link: 'https://official-site-static-files.s3-ap-northeast-1.amazonaws.com/pdf/Manuals/earthquake.pdf',
                     open: false
                 },
                 {
@@ -124,7 +124,7 @@ export default {
                     icon: 'mdi-fire',
                     color: 'red',
                     type: 'pdf',
-                    link: '/static/pdf/fire.pdf',
+                    link: 'https://official-site-static-files.s3-ap-northeast-1.amazonaws.com/pdf/Manuals/fire.pdf',
                     open: false
                 },
                 {
@@ -153,7 +153,7 @@ export default {
                 }
             ],
             fetch_from_kibela (folder) {
-                this.axios.get('https://j8zyiae7b5.execute-api.ap-northeast-1.amazonaws.com/default/fetch_kibela/' + folder)
+                this.axios.get(process.env.VUE_APP_KIBELA_API + folder)
                     .then(response => {
                         console.log(response)
                         for (const edge of response.data) {

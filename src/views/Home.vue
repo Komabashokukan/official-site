@@ -91,7 +91,7 @@ export default {
         }
     },
     mounted () {
-        this.axios.get('https://j8zyiae7b5.execute-api.ap-northeast-1.amazonaws.com/default/fetch_kibela/Info')
+        this.axios.get(process.env.VUE_APP_KIBELA_API + 'Info')
             .then(response => {
                 let year = 3000;
                 for (const edge of response.data) {
