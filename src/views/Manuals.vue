@@ -116,7 +116,7 @@ export default {
                     icon: 'mdi-exit-run',
                     color: 'green darken-2',
                     type: 'pdf',
-                    link: 'https://official-site-static-files.s3-ap-northeast-1.amazonaws.com/pdf/Manuals/earthquake.pdf',
+                    link: process.env.VUE_APP_S3_ROOT + 'pdf/Manuals/earthquake.pdf',
                     open: false
                 },
                 {
@@ -124,7 +124,7 @@ export default {
                     icon: 'mdi-fire',
                     color: 'red',
                     type: 'pdf',
-                    link: 'https://official-site-static-files.s3-ap-northeast-1.amazonaws.com/pdf/Manuals/fire.pdf',
+                    link: process.env.VUE_APP_S3_ROOT + 'pdf/Manuals/fire.pdf',
                     open: false
                 },
                 {
