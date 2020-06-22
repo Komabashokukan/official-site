@@ -71,6 +71,10 @@
 import MiniCalendar from '@/components/MiniCalendar';
 import marked from 'marked';
 
+marked.setOptions({
+    baseUrl: process.env.VUE_APP_S3_ROOT
+})
+
 export default {
     name: 'Home',
     components: {

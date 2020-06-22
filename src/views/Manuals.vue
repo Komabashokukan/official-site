@@ -94,6 +94,10 @@
 import PDFViewer from '@/components/PDFViewer';
 import marked from 'marked';
 
+marked.setOptions({
+    baseUrl: process.env.VUE_APP_S3_ROOT
+})
+
 export default {
     name: 'Manuals',
     components: { PDFViewer },
