@@ -39,7 +39,7 @@
                             </v-btn>
                         </v-card-actions>
 
-                        <v-card-title>{{ card.title }}</v-card-title>
+                        <v-card-title class="text-h4 text-decoration-underline grey--text">{{ card.title }}</v-card-title>
                         <Equipment v-if="card.dialog === 'Equipment'" />
                         <History v-if="card.dialog === 'History'" />
 
