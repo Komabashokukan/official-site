@@ -13,7 +13,7 @@
                             <v-divider v-else-if="item.divider" :key="index"></v-divider>
                             <v-tooltip right v-else :key="item.name">
                                 <template v-slot:activator="{ on }">
-                                    <v-list-item class="file-tile" v-on="on" @click="func()">
+                                    <v-list-item  :href="item.link" target="_blank" class="file-tile" v-on="on" >
                                         <v-list-item-avatar>
                                             <v-icon :color="item.color">{{ item.icon }}</v-icon>
                                         </v-list-item-avatar>
@@ -41,16 +41,16 @@ export default {
         items () {
             return [
                 { header: '提出用書類' },
-                { name: '継続使用計画書.pdf', link: '#', icon: 'mdi-pdf-box', color: 'red', description: '使用の1週間までに提出する使用の詳細を記載する書類です。' },
-                { name: '舞台図.pdf', link: '#', icon: 'mdi-pdf-box', color: 'red', description: '舞台備品の配置を図示するためのテンプレートです。' },
-                { name: '照明バトン図.pdf', link: '#', icon: 'mdi-pdf-box', color: 'red', description: '照明備品(灯体)の配置を図示するためのテンプレートです。' },
+                { name: '継続使用計画書.pdf', icon: 'mdi-pdf-box', color: 'red', description: '使用の1週間までに提出する使用の詳細を記載する書類です。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/継続使用計画書.pdf' },
+                { name: '舞台図.pdf', icon: 'mdi-pdf-box', color: 'red', description: '舞台備品の配置を図示するためのテンプレートです。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/+舞台図.pdf' },
+                { name: '照明バトン図.pdf', icon: 'mdi-pdf-box', color: 'red', description: '照明備品(灯体)の配置を図示するためのテンプレートです。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/+照明バトン図.pdf' },
                 { divider: true },
                 { header: 'Excelデータ配布' },
-                { name: '緊急連絡先一覧.xlsx', link: '#', icon: 'mdi-microsoft-excel', color: 'green darken-2', description: '使用に際して記入し、責任者が保管してください。' },
-                { name: '使用計画書.xlsx', link: '#', icon: 'mdi-microsoft-excel', color: 'green darken-2', description: '使用計画書のExcel板データです。' },
+                { name: '緊急連絡先一覧.xlsx', icon: 'mdi-microsoft-excel', color: 'green darken-2', description: '使用に際して記入し、責任者が保管してください。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/緊急連絡先一覧.xlsx' },
+                { name: '使用計画書.xlsx', icon: 'mdi-microsoft-excel', color: 'green darken-2', description: '使用計画書のExcel板データです。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/使用計画書.xlsx' },
                 { divider: true },
                 { header: 'その他' },
-                { name: '照明回路図.pdf', link: '#', icon: 'mdi-pdf-box', color: 'red', description: '照明の回路図です。電力計算に活用して下さい。' }
+                { name: '照明回路図.pdf', icon: 'mdi-pdf-box', color: 'red', description: '照明の回路図です。電力計算に活用して下さい。', link:'https://official-forms.s3-ap-northeast-1.amazonaws.com/PDF/照明回路図.pdf' }
             ]
         }
     },
