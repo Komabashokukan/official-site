@@ -22,7 +22,7 @@
 
                 <v-card class="mt-3">
                     <v-card-title>基本情報</v-card-title>
-                    <v-card-text class="text-left">公演などは外に公開する名称や企画名。練習・リハはその旨がわかるようにする。</v-card-text>
+                    <v-card-text class="text-left ml-5">公演などは外に公開する名称や企画名。練習・リハはその旨がわかるようにする。</v-card-text>
                     <v-container>
                         <v-row justify="center">
                             <!--<v-col md="5">
@@ -67,8 +67,8 @@
 
                 <v-card class="mt-3">
                         <v-card-title>部門責任者</v-card-title>
-                            <v-card-text class="text-left">※部門責任者の氏名を記入。問題が発生した際、責任者に責任を問い、責任者にその能力がない場合代理責任者の責任を問う。</v-card-text>
-                            <v-card-text class="text-left">※「なし」の場合は代理責任者に責任者経験者を立てること。困難な場合、必ず多目的ホール総務部まで連絡。</v-card-text>
+                            <v-card-text class="text-left ml-5">※部門責任者の氏名を記入。問題が発生した際、責任者に責任を問い、責任者にその能力がない場合代理責任者の責任を問う。</v-card-text>
+                            <v-card-text class="text-left ml-5">※「なし」の場合は代理責任者に責任者経験者を立てること。困難な場合、必ず多目的ホール総務部まで連絡。</v-card-text>
                         <v-container>
                         </v-container>
                     <v-divider></v-divider>
@@ -97,7 +97,7 @@
 
                 <v-card class="mt-3">
                         <v-card-title>使用備品</v-card-title>
-                        <v-card-text class="text-left">使用する備品にチェックをつけてください。</v-card-text>
+                        <v-card-text class="text-lef ml-5t">使用する備品にチェックをつけてください。</v-card-text>
                     <v-container>
                     </v-container>
                     <v-divider></v-divider>
@@ -188,7 +188,7 @@
 
                 <v-card class="mt-3">
                     <v-card-title>時間外利用</v-card-title>
-                    <v-card-text class="text-left">時間外利用はあるか。ある場合は<a href="/form/overtime_use" target="_blank" class="blue--text">時間外使用申請</a>を別途提出。</v-card-text>
+                    <v-card-text class="text-left ml-5">時間外利用はあるか。ある場合は<a href="/form/overtime_use" target="_blank" class="blue--text">時間外使用申請</a>を別途提出。</v-card-text>
                     <v-container>
                         <v-row justify="center">
                         <v-radio-group row v-model="overtime_use" :mandatory="true">
