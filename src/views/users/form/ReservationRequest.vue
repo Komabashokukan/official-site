@@ -11,7 +11,7 @@
                     <v-banner>
                         <v-list>
                             <v-list-item class="text-left">
-                                使用する２期前定例会1週間前までに回答すること。最初に回答するメールアドレスに回答のコピーが送信される。
+                                使用する２期前定例会1週間前までに回答すること。
                             </v-list-item>
                             <v-list-item class="text-left">
                                 提出後、訂正のある場合は多目的ホール総務部(komabashokukan%gmail.com)まで連絡すること。(%を@に変えてください)
