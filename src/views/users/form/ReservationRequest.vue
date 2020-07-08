@@ -1,7 +1,7 @@
 <template>
     <v-container fluid fill-height class="black">
         <v-row justify="center">
-            <v-col md="10">
+            <v-col md="10" cols="10">
                 <v-card>
                     <v-system-bar color="blue lighten-4"></v-system-bar>
                     <v-toolbar flat>
@@ -22,7 +22,7 @@
 
                 <v-card class="mt-3">
                     <v-card-title>基本情報</v-card-title>
-                    <v-card-text class="text-left ml-5">公演などは外に公開する名称や企画名。練習・リハはその旨がわかるようにする。</v-card-text>
+                    <v-card-text class="text-left ml-md-5">公演などは外に公開する名称や企画名。練習・リハはその旨がわかるようにする。</v-card-text>
                     <v-container>
                         <v-row justify="center">
                             <!--<v-col md="5">
@@ -31,10 +31,10 @@
                                 <v-text-field v-model="phone_number" label="メールアドレス"></v-text-field>
                                 <v-text-field v-model="phone_number" label="連絡先メールアドレス(代表者がなるべく使用するもの)"></v-text-field>
                             </v-col>-->
-                            <v-col md="6">
+                            <v-col md="6" cols="12">
                                 <v-text-field v-model="phone_number" label="催事・公演名"></v-text-field>
                             </v-col>
-                            <v-col md="4">
+                            <v-col md="4" cols="12">
                                 <v-menu
                                         ref="menu"
                                         v-model="menu"
@@ -67,8 +67,8 @@
 
                 <v-card class="mt-3">
                         <v-card-title>部門責任者</v-card-title>
-                            <v-card-text class="text-left ml-5">※部門責任者の氏名を記入。問題が発生した際、責任者に責任を問い、責任者にその能力がない場合代理責任者の責任を問う。</v-card-text>
-                            <v-card-text class="text-left ml-5">※「なし」の場合は代理責任者に責任者経験者を立てること。困難な場合、必ず多目的ホール総務部まで連絡。</v-card-text>
+                            <v-card-text class="text-left ml-md-5">※部門責任者の氏名を記入。問題が発生した際、責任者に責任を問い、責任者にその能力がない場合代理責任者の責任を問う。</v-card-text>
+                            <v-card-text class="text-left ml-md-5">※「なし」の場合は代理責任者に責任者経験者を立てること。困難な場合、必ず多目的ホール総務部まで連絡。</v-card-text>
                         <v-container>
                         </v-container>
                     <v-divider></v-divider>
@@ -77,13 +77,13 @@
                     <v-container>
                         <v-card-title class="ml-4 subtitle-1 text--secondary">【{{section.name}}】</v-card-title>
                         <v-row  justify="center">
-                            <v-col md="5">
+                            <v-col md="5" cols="12">
                                 <v-text-field v-model="section.responsible" :label="section.name+'部門責任者'"></v-text-field>
                             </v-col>
-                            <v-col md="5">
+                            <v-col md="5" cols="12">
                                 <v-text-field v-model="section.proxy" :label="section.name+'部門代理責任者'"></v-text-field>
                             </v-col>
-                            <v-col md="5">
+                            <v-col md="5" cols="12">
                                 <v-radio-group row v-model="section.exp" :mandatory="true">
                                     <span>責任者経験:</span>
                                     <v-radio class="ml-3" label="経験なし"></v-radio>
@@ -97,7 +97,7 @@
 
                 <v-card class="mt-3">
                         <v-card-title>使用備品</v-card-title>
-                        <v-card-text class="text-lef ml-5t">使用する備品にチェックをつけてください。</v-card-text>
+                        <v-card-text class="text-left ml-5">使用する備品にチェックをつけてください。</v-card-text>
                     <v-container>
                     </v-container>
                     <v-divider></v-divider>
@@ -105,30 +105,32 @@
                 <v-card>
                     <v-container>
                         <v-card-title class="ml-4 subtitle-1 text--secondary">【使用設備1】</v-card-title>
+                        <v-container class="ml-16">
                         <v-row justify="center">
-                                <v-col v-for="equipment in equipments_1" :key="equipment.name" md="4" >
+                                <v-col v-for="equipment in equipments_1" :key="equipment.name" md="4" cols="12">
                                     <v-checkbox
                                         :label="equipment.name"
-                                        class="d-inline-flex"
                                         >
                                     </v-checkbox>
                                 </v-col>
                         </v-row>
+                        </v-container>
                     </v-container>
                 <v-divider></v-divider>
                 </v-card>
                 <v-card>
                     <v-container>
                         <v-card-title class="ml-4 subtitle-1 text--secondary">【使用設備2】</v-card-title>
+                        <v-container class="ml-16">
                         <v-row justify="center">
-                                <v-col v-for="equipment in equipments_2" :key="equipment.name" md="4" >
+                                <v-col v-for="equipment in equipments_2" :key="equipment.name" md="4" cols="12">
                                     <v-checkbox
                                         :label="equipment.name"
-                                        class="d-inline-flex"
                                         >
                                     </v-checkbox>
                                 </v-col>
                         </v-row>
+                        </v-container>
                     </v-container>
                 <v-divider></v-divider>
                 </v-card>
@@ -137,7 +139,7 @@
                     <v-card-title>参加予定人数</v-card-title>
                     <v-container>
                         <v-row justify="center">
-                            <v-col class="ma-5" md="3" v-for="member in members" :key="member.type">
+                            <v-col class="ma-5" md="3" cols="12" v-for="member in members" :key="member.type">
                                 <v-text-field v-model="member.number" :label="member.type"></v-text-field>
                             </v-col>
                         </v-row>
@@ -148,7 +150,7 @@
                     <v-card-title>公演日・公演回数・予定観客数</v-card-title>
                     <v-container>
                         <v-row justify="center">
-                            <v-col  md="4">
+                            <v-col  md="5"  cols="12">
                                 <v-menu
                                     ref="perfo_menu"
                                     v-model="perfo_menu"
@@ -176,10 +178,10 @@
                                     </v-date-picker>
                                 </v-menu>
                             </v-col>
-                            <v-col md="3">
+                            <v-col md="3" cols="12">
                                 <v-text-field v-model="perfo_cont" label="公演回数"></v-text-field>
                             </v-col>
-                            <v-col md="3">
+                            <v-col md="3" cols="12">
                                 <v-text-field v-model="audience" label="予定観客数(1公演あたり)"></v-text-field>
                             </v-col>
                         </v-row>
@@ -188,7 +190,7 @@
 
                 <v-card class="mt-3">
                     <v-card-title>時間外利用</v-card-title>
-                    <v-card-text class="text-left ml-5">時間外利用はあるか。ある場合は<a href="/form/overtime_use" target="_blank" class="blue--text">時間外使用申請</a>を別途提出。</v-card-text>
+                    <v-card-text class="text-left ml-md-5">時間外利用はあるか。ある場合は<a href="/form/overtime_use" target="_blank" class="text-decoration-none blue--text">時間外使用申請</a>を別途提出。(こちらの提出期限は使用開始1週間前です)</v-card-text>
                     <v-container>
                         <v-row justify="center">
                         <v-radio-group row v-model="overtime_use" :mandatory="true">
@@ -240,23 +242,23 @@ export default {
                 { name:'音響', responsible:'', proxy:'', exp:false }
             ],
             equipments_1:[
-                { name:'楽屋　　　　', use:false },
-                { name:'椅子　　　　　　　', use:false },
+                { name:'楽屋', use:false },
+                { name:'椅子', use:false },
                 { name:'クッション（黒）', use:false },
-                { name:'長机　　　　', use:false },
-                { name:'蛇腹カーテン　　　', use:false },
-                { name:'使用しない　　　', use:false } // インデントはcheckboxの位置合わせ
+                { name:'長机', use:false },
+                { name:'蛇腹カーテン', use:false },
+                { name:'使用しない', use:false }
             ],
             equipments_2:[
                 { name:'2Fギャラリー', use:false },
                 { name:'3Fキャットウォーク', use:false },
-                { name:'調光室　　　　　', use:false },
-                { name:'屋内倉庫　　', use:false },
-                { name:'舞台用備品　　　　', use:false },
-                { name:'音響用備品　　　', use:false },
-                { name:'照明用備品　', use:false },
-                { name:'映像用備品　　　　', use:false },
-                { name:'使用しない　　　', use:false } // インデントはcheckboxの位置合わせ
+                { name:'調光室', use:false },
+                { name:'屋内倉庫', use:false },
+                { name:'舞台用備品', use:false },
+                { name:'音響用備品', use:false },
+                { name:'照明用備品', use:false },
+                { name:'映像用備品', use:false },
+                { name:'使用しない', use:false }
             ],
             members:[
                 { type:'本学生', number:'' },
