@@ -12,7 +12,7 @@
             <v-flex md5 sm12 class="text-left order-0 mt-md-8 pl-4">
                 <h2 class="mb-2">お問い合わせ</h2>
                 <p>電話番号: 090-3816-3855</p>
-                <p>メール: <a href="mailto:komabashokukan@gmail.com" class="blue--text">komabashokukan@gmail.com</a></p>
+                <p>メール: <a href="mailto:komabashokukan@gmail.com" class="blue--text">{{address}}</a></p>
             </v-flex>
 
             <v-flex md5 class="order-1 mr-md-5">
@@ -51,6 +51,11 @@ export default {
     data () {
         return {
             map_dialog: false
+        }
+    },
+    computed: {
+        address () {
+            return this.$store.state.address;
         }
     }
 }
